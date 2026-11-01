@@ -1,0 +1,59 @@
+[project]
+name = "related-work-assistant"
+version = "0.1.0"
+description = "Local Related Work Research Assistant"
+readme = "README.md"
+authors = [
+    { name = "Mila Marinkovic", email = "mm@niteo.co" }
+]
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "accelerate>=1.12.0,<2",
+    "adapters>=1.3.0",
+    "alembic>=1.20.1",
+    "defusedxml>=0.7.1",
+    "fastapi>=0.162.0",
+    "httpx>=0.28.1",
+    "huggingface-hub>=0.36.2",
+    "numpy>=2.5.4",
+    "peft>=0.18.0,<0.19",
+    "pgvector>=0.5.1",
+    "psycopg[binary]>=3.3.6",
+    "pydantic-settings>=2.16.2",
+    "pymupdf>=1.26,<2",
+    "python-dotenv>=1.2.4",
+    "rdflib>=7.6.0",
+    "sentence-transformers>=5.7.0",
+    "sqlalchemy>=2.0,<3",
+    "streamlit>=1.66.1",
+    "torch>=2.15.0",
+    "typer>=0.27.3",
+    "uvicorn>=0.54.0",
+]
+
+[project.scripts]
+related-work = "related_work_assistant.cli:app"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "httpx>=0.28.1",
+    "pytest>=9.2.0",
+    "pytest-cov>=7.1.0",
+    "ruff>=0.17.3",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+extend-exclude = [".uv-cache", ".venv", "data", "models_cache"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["integration: requires a real temporary PostgreSQL database"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "UP"]

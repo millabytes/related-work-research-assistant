@@ -1,0 +1,10 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0"><teiHeader>
+<fileDesc><titleStmt><title>Fallback title</title></titleStmt><sourceDesc><biblStruct>
+<analytic><title level="a">A <hi>Scientific</hi> Paper</title>
+<author><persName><forename type="first">Ada</forename><forename type="middle">M.</forename><surname>Example</surname></persName></author>
+<author><persName><surname>Second</surname></persName></author></analytic>
+<monogr><title level="j">Journal of Tests</title><imprint><date type="published" when="2024-03"/></imprint></monogr>
+<idno type="DOI">https://doi.org/10.1234/TEST</idno></biblStruct></sourceDesc></fileDesc>
+<profileDesc><abstract><p>First sentence.</p><p>Second sentence.</p></abstract>
+<textClass><keywords><term>Machine learning</term><term>Testing</term></keywords></textClass></profileDesc>
+</teiHeader><text><back><listBibl><biblStruct><analytic><title level="a">Wrong reference title</title></analytic><idno type="DOI">10.9999/wrong</idno></biblStruct></listBibl></back></text></TEI>

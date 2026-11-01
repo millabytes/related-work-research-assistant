@@ -1,0 +1,36 @@
+services:
+  db:
+    image: pgvector/pgvector:0.8.7-pg17-bookworm
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-related_work}
+      POSTGRES_USER: ${POSTGRES_USER:-related_work}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Set POSTGRES_PASSWORD in .env}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - related_work_postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 12
+  grobid:
+    image: grobid/grobid:0.9.1-crf
+    profiles: [extraction]
+    init: true
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8070:8070"
+    environment:
+      JAVA_TOOL_OPTIONS: "-Xmx4g"
+    ulimits:
+      core: 0
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://localhost:8070/api/isalive"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 20s
+volumes:
+  related_work_postgres:

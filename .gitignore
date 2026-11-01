@@ -1,0 +1,62 @@
+# Secrets and machine-local configuration
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Python environments and caches
+.venv/
+.uv-cache/
+.cache/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.pyright/
+.coverage
+coverage.xml
+htmlcov/
+*.egg-info/
+
+# Build and editor artifacts
+build/
+dist/
+.DS_Store
+.idea/
+.vscode/
+
+# Private/source data and generated datasets
+data/raw_data/
+data/raw_pdfs/
+data/datasets/
+
+# Generated pipeline artifacts (keep directory placeholders)
+data/processed/*
+!data/processed/.gitkeep
+data/outputs/*
+!data/outputs/.gitkeep
+data/evaluations/*
+!data/evaluations/.gitkeep
+
+# Downloaded models, trained adapters, and checkpoints
+checkpoints/
+models_cache/
+
+# Database dumps and local databases
+*.sql.gz
+*.dump
+*.sqlite
+*.sqlite3
+
+# Cluster/container artifacts and runtime logs
+*.out
+*.err
+*.log
+nohup.out
+frida_logs/
+slurm-*.out
+*.sqfs
+
+# Internal task PDFs; keep documentation in docs/
+docs/*.pdf

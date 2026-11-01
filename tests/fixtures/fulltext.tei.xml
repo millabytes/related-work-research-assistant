@@ -1,0 +1,40 @@
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+    <fileDesc><titleStmt><title>Fixture</title></titleStmt><sourceDesc><biblStruct/></sourceDesc></fileDesc>
+    <profileDesc>
+      <abstract>
+        <div><p xml:id="p0" coords="1,40,80,400,30">
+          <s xml:id="s0" coords="1,40,80,190,15">A short abstract sentence.</s>
+          <s xml:id="s1" coords="1,40,95,250,15">It has a second sentence.</s>
+        </p></div>
+      </abstract>
+    </profileDesc>
+  </teiHeader>
+  <facsimile>
+    <surface n="1" ulx="0" uly="0" lrx="600" lry="800"/>
+    <surface n="2" ulx="0" uly="0" lrx="600" lry="800"/>
+  </facsimile>
+  <text>
+    <body>
+      <div xml:id="d1">
+        <head coords="1,40,140,160,18">1 Introduction</head>
+        <p xml:id="p1" coords="1,40,170,500,45">
+          <s xml:id="s2" coords="1,40,170,400,15">The introduction starts with a mapped sentence.</s>
+          <s xml:id="s3" coords="1,40,185,440,15">The next sentence continues the same paragraph.</s>
+        </p>
+        <p xml:id="p2" coords="1,40,230,500,30">
+          <s xml:id="s4" coords="1,40,230,470,15">A separate paragraph should retain its logical boundary.</s>
+        </p>
+        <div xml:id="d2">
+          <head coords="2,40,80,120,18">Methods</head>
+          <p xml:id="p3" coords="2,40,110,500,30">
+            <s xml:id="s5" coords="2,40,110,450,15">The method is evaluated independently from the introduction.</s>
+          </p>
+        </div>
+      </div>
+    </body>
+    <back>
+      <div type="references"><listBibl><biblStruct><note>Excluded reference text.</note></biblStruct></listBibl></div>
+    </back>
+  </text>
+</TEI>
