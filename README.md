@@ -483,6 +483,17 @@ uv run ruff check .
 
 The latest complete verification passed 74 unit and 26 integration tests.
 
+### Continuous integration
+
+The GitHub Actions workflow in `.github/workflows/ci.yml` runs on pushes and pull requests to
+`main`, and can also be started manually from the Actions tab. It installs the locked `uv`
+environment, runs Ruff, all unit tests, all integration tests against a temporary pgvector-enabled
+PostgreSQL service, and verifies that the Python distribution builds. CI does not download model
+checkpoints or require private PDFs, datasets, adapters, database dumps, or repository secrets.
+
+Deployment is intentionally not automated: the application depends on local/private papers,
+trained model artifacts, PostgreSQL state, and target-specific GPU infrastructure.
+
 ## Known limitations
 
 - Retrieval searches only the locally ingested corpus.

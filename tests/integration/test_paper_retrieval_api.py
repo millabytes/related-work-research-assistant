@@ -97,8 +97,9 @@ def retrieval_database(db_engine):
 
 
 @pytest.fixture
-def retrieval_client(retrieval_database):
+def retrieval_client(retrieval_database, monkeypatch, tmp_path):
     engine, papers = retrieval_database
+    monkeypatch.setenv("QWEN_LORA_DIR", str(tmp_path / "missing-qwen-lora-adapter"))
 
     def override_engine():
         return engine
